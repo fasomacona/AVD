@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.4 Caso Práctico | Tema 1 - GAD-2401</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        :root { --primary: #0d6efd; --secondary: #6610f2; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; }
+        .hero { background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%); color: white; padding: 3rem 0; }
+        .section-card { background: white; border-radius: 1rem; box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.08); padding: 2rem; margin-bottom: 2rem; border: 1px solid #e9ecef; }
+        .section-card h2 { color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 0.5rem; }
+        .section-card h3 { color: var(--secondary); margin-top: 1.75rem; }
+        .highlight-box { background: #e7f1ff; border-left: 4px solid var(--primary); padding: 1rem 1.25rem; border-radius: 0 0.5rem 0.5rem 0; margin: 1.5rem 0; }
+        .success-box { background: #d1e7dd; border-left: 4px solid #198754; padding: 1rem 1.25rem; border-radius: 0 0.5rem 0.5rem 0; margin: 1.5rem 0; }
+        .code-block { background: #1e1e1e; color: #d4d4d4; padding: 1.25rem; border-radius: 0.5rem; overflow-x: auto; font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 0.85rem; margin: 1rem 0; white-space: pre; }
+        .code-block .comment { color: #6a9955; }
+        .code-block .keyword { color: #569cd6; }
+        .code-block .string { color: #ce9178; }
+        .code-block .function { color: #dcdcaa; }
+        footer { background: #212529; color: #adb5bd; padding: 2rem 0; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-bar-chart-line-fill me-2"></i>GAD-2401 · Tema 1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="conjuntos.html">1.1 Conjuntos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="relaciones.html">1.2 Relaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="preprocesamiento.html">1.3 Preprocesamiento</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="caso_practico.html">1.4 Caso Práctico</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-2">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white-50">Tema 1</a></li>
+                    <li class="breadcrumb-item active text-white">1.4 Caso Práctico</li>
+                </ol>
+            </nav>
+            <h1 class="fw-bold">1.4 Caso Práctico</h1>
+            <p class="lead mb-0">Limpieza y preparación completa de un conjunto de datos de ventas con Python (Pandas + NumPy).</p>
+        </div>
+    </section>
+
+    <div class="container my-4">
+        <div class="section-card">
+            <h2><i class="bi bi-briefcase me-2"></i>Descripción del caso</h2>
+            <p>
+                Una empresa de retail desea analizar las ventas de sus tiendas. El archivo 
+                <code>ventas_raw.csv</code> contiene datos de transacciones, pero presenta 
+                múltiples problemas de calidad típicos del mundo real:
+            </p>
+            <ul>
+                <li>Valores faltantes en varias columnas</li>
+                <li>Inconsistencias en nombres de regiones y categorías</li>
+                <li>Valores atípicos (outliers) en precios y cantidades</li>
+                <li>Duplicados</li>
+                <li>Formatos de fecha inconsistentes</li>
+                <li>Columnas con tipos de datos incorrectos</li>
+            </ul>
+            <p>
+                El objetivo es producir un dataset limpio, consistente y listo para análisis 
+                y visualización posteriores.
+            </p>
+        </div>
+
+        <div class="section-card">
+            <h2>Paso 1: Carga y exploración inicial</h2>
+            <div class="code-block">
+<span class="keyword">import</span> pandas <span class="keyword">as</span> pd
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt
+<span class="keyword">import</span> seaborn <span class="keyword">as</span> sns
+
+<span class="comment"># Cargar el dataset</span>
+df = pd.read_csv(<span class="string">"ventas_raw.csv"</span>, encoding=<span class="string">"utf-8"</span>)
+
+<span class="comment"># Vista general</span>
+print(<span class="string">"Dimensiones:"</span>, df.shape)
+print(<span class="string">"\nTipos de datos:\n"</span>, df.dtypes)
+print(<span class="string">"\nPrimeras filas:\n"</span>, df.head())
+print(<span class="string">"\nResumen estadístico:\n"</span>, df.describe(include=<span class="string">'all'</span>))
+print(<span class="string">"\nValores faltantes:\n"</span>, df.isnull().sum())
+print(<span class="string">"\nDuplicados:"</span>, df.duplicated().sum())
+            </div>
+            <div class="highlight-box">
+                <strong>Qué observar:</strong> número de filas y columnas, tipos de datos inesperados 
+                (ej. precios como object), porcentaje de missing por columna, presencia de duplicados.
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>Paso 2: Limpieza de duplicados e inconsistencias básicas</h2>
+            <div class="code-block">
+<span class="comment"># Eliminar duplicados exactos</span>
+df = df.drop_duplicates()
+
+<span class="comment"># Estandarizar texto (minúsculas y strip)</span>
+df[<span class="string">'region'</span>] = df[<span class="string">'region'</span>].str.strip().str.title()
+df[<span class="string">'categoria'</span>] = df[<span class="string">'categoria'</span>].str.strip().str.title()
+
+<span class="comment"># Mapear valores inconsistentes</span>
+mapa_regiones = {
+    <span class="string">'Norte'</span>: <span class="string">'Norte'</span>,
+    <span class="string">'Nte'</span>: <span class="string">'Norte'</span>,
+    <span class="string">'norte'</span>: <span class="string">'Norte'</span>,
+    <span class="string">'Sur'</span>: <span class="string">'Sur'</span>,
+    <span class="string">'S'</span>: <span class="string">'Sur'</span>,
+    <span class="string">'Centro'</span>: <span class="string">'Centro'</span>,
+    <span class="string">'Ctro'</span>: <span class="string">'Centro'</span>
+}
+df[<span class="string">'region'</span>] = df[<span class="string">'region'</span>].replace(mapa_regiones)
+
+<span class="comment"># Convertir fechas</span>
+df[<span class="string">'fecha'</span>] = pd.to_datetime(df[<span class="string">'fecha'</span>], errors=<span class="string">'coerce'</span>, dayfirst=True)
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>Paso 3: Manejo de valores faltantes</h2>
+            <div class="code-block">
+<span class="comment"># Estrategia diferenciada según la columna</span>
+
+<span class="comment"># 1. Si la fecha es crítica y está faltante → eliminar la fila</span>
+df = df.dropna(subset=[<span class="string">'fecha'</span>, <span class="string">'id_producto'</span>])
+
+<span class="comment"># 2. Precio: imputar con la mediana por categoría</span>
+df[<span class="string">'precio'</span>] = df.groupby(<span class="string">'categoria'</span>)[<span class="string">'precio'</span>].transform(
+    <span class="keyword">lambda</span> x: x.fillna(x.median())
+)
+
+<span class="comment"># 3. Cantidad: imputar con la mediana global</span>
+df[<span class="string">'cantidad'</span>] = df[<span class="string">'cantidad'</span>].fillna(df[<span class="string">'cantidad'</span>].median())
+
+<span class="comment"># 4. Región: crear categoría "Desconocida"</span>
+df[<span class="string">'region'</span>] = df[<span class="string">'region'</span>].fillna(<span class="string">'Desconocida'</span>)
+
+<span class="comment"># Verificar que ya no haya missing críticos</span>
+print(df.isnull().sum())
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>Paso 4: Detección y tratamiento de outliers</h2>
+            <div class="code-block">
+<span class="comment"># Función para detectar outliers con método IQR</span>
+<span class="keyword">def</span> <span class="function">detectar_outliers_iqr</span>(serie):
+    Q1 = serie.quantile(0.25)
+    Q3 = serie.quantile(0.75)
+    IQR = Q3 - Q1
+    limite_inf = Q1 - 1.5 * IQR
+    limite_sup = Q3 + 1.5 * IQR
+    <span class="keyword">return</span> (serie &lt; limite_inf) | (serie &gt; limite_sup)
+
+<span class="comment"># Identificar outliers en precio y cantidad</span>
+outliers_precio = detectar_outliers_iqr(df[<span class="string">'precio'</span>])
+outliers_cantidad = detectar_outliers_iqr(df[<span class="string">'cantidad'</span>])
+
+print(<span class="string">f"Outliers en precio: {outliers_precio.sum()}"</span>)
+print(<span class="string">f"Outliers en cantidad: {outliers_cantidad.sum()}"</span>)
+
+<span class="comment"># Opción 1: Eliminar outliers extremos</span>
+<span class="comment"># df = df[~outliers_precio & ~outliers_cantidad]</span>
+
+<span class="comment"># Opción 2 (recomendada en muchos casos): Capado (winsorizing)</span>
+df[<span class="string">'precio'</span>] = df[<span class="string">'precio'</span>].clip(
+    lower=df[<span class="string">'precio'</span>].quantile(0.01),
+    upper=df[<span class="string">'precio'</span>].quantile(0.99)
+)
+df[<span class="string">'cantidad'</span>] = df[<span class="string">'cantidad'</span>].clip(lower=1, upper=df[<span class="string">'cantidad'</span>].quantile(0.99))
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>Paso 5: Transformaciones y creación de variables</h2>
+            <div class="code-block">
+<span class="comment"># Crear variable de ingreso total</span>
+df[<span class="string">'ingreso'</span>] = df[<span class="string">'precio'</span>] * df[<span class="string">'cantidad'</span>]
+
+<span class="comment"># Extraer componentes de fecha</span>
+df[<span class="string">'anio'</span>] = df[<span class="string">'fecha'</span>].dt.year
+df[<span class="string">'mes'</span>] = df[<span class="string">'fecha'</span>].dt.month
+df[<span class="string">'dia_semana'</span>] = df[<span class="string">'fecha'</span>].dt.day_name()
+df[<span class="string">'trimestre'</span>] = df[<span class="string">'fecha'</span>].dt.quarter
+
+<span class="comment"># Codificación de variables categóricas (ejemplo One-Hot)</span>
+df_encoded = pd.get_dummies(df, columns=[<span class="string">'region'</span>, <span class="string">'categoria'</span>], 
+                            prefix=[<span class="string">'reg'</span>, <span class="string">'cat'</span>], drop_first=True)
+
+<span class="comment"># Escalado de variables numéricas (para modelos posteriores)</span>
+<span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler
+scaler = StandardScaler()
+cols_num = [<span class="string">'precio'</span>, <span class="string">'cantidad'</span>, <span class="string">'ingreso'</span>]
+df_encoded[cols_num] = scaler.fit_transform(df_encoded[cols_num])
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2>Paso 6: Validación final y exportación</h2>
+            <div class="code-block">
+<span class="comment"># Chequeos finales</span>
+print(<span class="string">"Dimensiones finales:"</span>, df.shape)
+print(<span class="string">"\nValores faltantes restantes:\n"</span>, df.isnull().sum())
+print(<span class="string">"\nTipos de datos:\n"</span>, df.dtypes)
+print(<span class="string">"\nResumen de ingreso:\n"</span>, df[<span class="string">'ingreso'</span>].describe())
+
+<span class="comment"># Guardar el dataset limpio</span>
+df.to_csv(<span class="string">"ventas_limpias.csv"</span>, index=<span class="keyword">False</span>, encoding=<span class="string">"utf-8"</span>)
+df_encoded.to_csv(<span class="string">"ventas_modelado.csv"</span>, index=<span class="keyword">False</span>, encoding=<span class="string">"utf-8"</span>)
+
+print(<span class="string">"\n✓ Datasets exportados correctamente"</span>)
+            </div>
+            <div class="success-box">
+                <strong>Resultado esperado:</strong> Un archivo <code>ventas_limpias.csv</code> 
+                listo para análisis exploratorio y visualización, y un archivo 
+                <code>ventas_modelado.csv</code> con variables numéricas escaladas y categóricas 
+                codificadas, preparado para algoritmos de machine learning.
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2><i class="bi bi-lightbulb me-2"></i>Buenas prácticas aplicadas en este caso</h2>
+            <ul>
+                <li>Exploración antes de cualquier modificación (nunca limpiar a ciegas).</li>
+                <li>Decisiones de imputación justificadas por el contexto del negocio.</li>
+                <li>Tratamiento de outliers con métodos robustos (IQR + capado).</li>
+                <li>Creación de variables derivadas útiles para el análisis.</li>
+                <li>Separación clara entre dataset “analítico” y dataset “para modelado”.</li>
+                <li>Documentación del proceso (el código en sí es la documentación reproducible).</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+            <h2>Ejercicios sugeridos</h2>
+            <ol>
+                <li>Modifica la estrategia de imputación: prueba KNNImputer de scikit-learn y compara resultados.</li>
+                <li>Añade una visualización de la distribución de precios antes y después del tratamiento de outliers.</li>
+                <li>Implementa un reporte automático de calidad de datos (porcentaje de missing, cardinalidad de categóricas, etc.).</li>
+                <li>Integra un segundo archivo (por ejemplo, catálogo de productos) mediante un merge y resuelve conflictos de nombres.</li>
+            </ol>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a href="preprocesamiento.html" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i> 1.3 Preprocesamiento</a>
+            <a href="index.html" class="btn btn-primary">Volver al Inicio <i class="bi bi-house ms-1"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p class="mb-1">TecNM · Tecnológico de Estudios Superiores de Chalco</p>
+            <p class="mb-0 small">GAD-2401 · Análisis y Visualización de Datos</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

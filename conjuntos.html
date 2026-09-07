@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.1 Conjunto de Datos | Tema 1 - GAD-2401</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        :root { --primary: #0d6efd; --secondary: #6610f2; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; }
+        .hero { background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%); color: white; padding: 3rem 0; }
+        .section-card { background: white; border-radius: 1rem; box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.08); padding: 2rem; margin-bottom: 2rem; border: 1px solid #e9ecef; }
+        .section-card h2 { color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 0.5rem; }
+        .section-card h3 { color: var(--secondary); margin-top: 1.75rem; }
+        .highlight-box { background: #e7f1ff; border-left: 4px solid var(--primary); padding: 1rem 1.25rem; border-radius: 0 0.5rem 0.5rem 0; margin: 1.5rem 0; }
+        .info-box { background: #d1e7dd; border-left: 4px solid #198754; padding: 1rem 1.25rem; border-radius: 0 0.5rem 0.5rem 0; margin: 1.5rem 0; }
+        .vs-card { transition: transform 0.2s; height: 100%; }
+        .vs-card:hover { transform: translateY(-4px); }
+        footer { background: #212529; color: #adb5bd; padding: 2rem 0; margin-top: 3rem; }
+        .table th { background: var(--primary); color: white; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-bar-chart-line-fill me-2"></i>GAD-2401 · Tema 1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="conjuntos.html">1.1 Conjuntos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="relaciones.html">1.2 Relaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="preprocesamiento.html">1.3 Preprocesamiento</a></li>
+                    <li class="nav-item"><a class="nav-link" href="caso_practico.html">1.4 Caso Práctico</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-2">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white-50">Tema 1</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">1.1 Conjunto de Datos</li>
+                </ol>
+            </nav>
+            <h1 class="fw-bold">1.1 Conjunto de Datos</h1>
+            <p class="lead mb-0">Las tres grandes características que definen los datos en la actualidad: Volumen, Variedad y Velocidad.</p>
+        </div>
+    </section>
+
+    <div class="container my-4">
+        <div class="section-card">
+            <h2><i class="bi bi-database me-2"></i>¿Qué es un Conjunto de Datos?</h2>
+            <p>
+                Un <strong>conjunto de datos</strong> (dataset) es una colección estructurada o no estructurada de información 
+                que representa observaciones, hechos o mediciones sobre un fenómeno o dominio particular. 
+                Puede estar organizado en tablas (filas = observaciones, columnas = variables), documentos, 
+                imágenes, series temporales, grafos, etc.
+            </p>
+            <p>
+                En el contexto de la ciencia de datos moderna, especialmente con el auge del <strong>Big Data</strong>, 
+                los conjuntos de datos se caracterizan por tres propiedades fundamentales conocidas como las 
+                <strong>3 Vs</strong>:
+            </p>
+            <div class="row g-4 mt-2">
+                <div class="col-md-4">
+                    <div class="card vs-card border-primary h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-hdd-stack text-primary" style="font-size: 3rem;"></i>
+                            <h4 class="mt-3 text-primary">Volumen</h4>
+                            <p class="mb-0">Cantidad masiva de datos generados y almacenados.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card vs-card border-success h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-collection text-success" style="font-size: 3rem;"></i>
+                            <h4 class="mt-3 text-success">Variedad</h4>
+                            <p class="mb-0">Diversidad de formatos, tipos y fuentes de datos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card vs-card border-danger h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-speedometer2 text-danger" style="font-size: 3rem;"></i>
+                            <h4 class="mt-3 text-danger">Velocidad</h4>
+                            <p class="mb-0">Rapidez con la que se generan y deben procesarse los datos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1.1.1 Volumen -->
+        <div class="section-card">
+            <h2>1.1.1 Datos de Alto Volumen</h2>
+            <p>
+                El <strong>volumen</strong> se refiere a la cantidad de datos que se generan, almacenan y procesan. 
+                En la actualidad, hablamos de terabytes, petabytes e incluso exabytes de información.
+            </p>
+            <h3>Ejemplos reales de alto volumen</h3>
+            <ul>
+                <li><strong>Redes sociales:</strong> Facebook genera más de 4 petabytes de datos al día.</li>
+                <li><strong>IoT (Internet de las Cosas):</strong> Sensores industriales y dispositivos conectados producen flujos continuos de lecturas.</li>
+                <li><strong>Comercio electrónico:</strong> Amazon procesa millones de transacciones y clics diarios.</li>
+                <li><strong>Genómica:</strong> Una sola secuencia completa del genoma humano puede ocupar varios gigabytes.</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>Implicación para el análisis:</strong> Los métodos tradicionales de almacenamiento y procesamiento 
+                (como cargar todo en memoria RAM) dejan de ser viables. Se requieren tecnologías como 
+                Hadoop, Spark, bases de datos distribuidas y técnicas de muestreo inteligente.
+            </div>
+            <h3>Desafíos del alto volumen</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Desafío</th>
+                            <th>Descripción</th>
+                            <th>Estrategia de mitigación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Almacenamiento</td>
+                            <td>Costos y capacidad limitada</td>
+                            <td>Almacenamiento distribuido (HDFS, S3), compresión</td>
+                        </tr>
+                        <tr>
+                            <td>Procesamiento</td>
+                            <td>Tiempo de cómputo excesivo</td>
+                            <td>Procesamiento paralelo, MapReduce, Spark</td>
+                        </tr>
+                        <tr>
+                            <td>Transferencia</td>
+                            <td>Ancho de banda y latencia</td>
+                            <td>Procesamiento cerca de los datos (edge computing)</td>
+                        </tr>
+                        <tr>
+                            <td>Calidad</td>
+                            <td>Más datos ≠ mejores datos</td>
+                            <td>Limpieza, filtrado y validación rigurosa</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 1.1.2 Variedad -->
+        <div class="section-card">
+            <h2>1.1.2 Datos de Alta Variedad</h2>
+            <p>
+                La <strong>variedad</strong> se refiere a la diversidad de formatos, estructuras y fuentes de los datos. 
+                No todos los datos vienen en neat tables de Excel o CSV.
+            </p>
+            <h3>Clasificación de datos según su estructura</h3>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="card h-100 border-primary">
+                        <div class="card-header bg-primary text-white">Estructurados</div>
+                        <div class="card-body">
+                            <p>Datos organizados en esquemas fijos (tablas relacionales).</p>
+                            <ul class="mb-0">
+                                <li>Bases de datos SQL</li>
+                                <li>Hojas de cálculo</li>
+                                <li>CSV, TSV</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-warning">
+                        <div class="card-header bg-warning text-dark">Semi-estructurados</div>
+                        <div class="card-body">
+                            <p>Tienen alguna organización, pero no un esquema rígido.</p>
+                            <ul class="mb-0">
+                                <li>JSON, XML</li>
+                                <li>Logs de servidores</li>
+                                <li>Emails</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-danger">
+                        <div class="card-header bg-danger text-white">No estructurados</div>
+                        <div class="card-body">
+                            <p>Sin formato predefinido o esquema.</p>
+                            <ul class="mb-0">
+                                <li>Texto libre, documentos</li>
+                                <li>Imágenes, video, audio</li>
+                                <li>Redes sociales (posts)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-box mt-4">
+                <strong>Ejemplo práctico:</strong> Un sistema de recomendación de una tienda en línea puede combinar:
+                <ul class="mb-0 mt-2">
+                    <li>Datos estructurados: historial de compras (tabla relacional)</li>
+                    <li>Semi-estructurados: clics y eventos de navegación (JSON)</li>
+                    <li>No estructurados: reseñas de productos (texto libre) e imágenes de productos</li>
+                </ul>
+            </div>
+            <h3>Implicaciones de la variedad</h3>
+            <p>
+                La variedad obliga a utilizar herramientas flexibles de extracción y transformación 
+                (ETL/ELT), parsers específicos, técnicas de NLP para texto, visión por computadora 
+                para imágenes, y modelos de datos que permitan integrar fuentes heterogéneas 
+                (por ejemplo, data lakes).
+            </p>
+        </div>
+
+        <!-- 1.1.3 Velocidad -->
+        <div class="section-card">
+            <h2>1.1.3 Datos de Alta Velocidad</h2>
+            <p>
+                La <strong>velocidad</strong> se refiere a la tasa a la que se generan, transmiten y deben 
+                procesarse los datos. En muchos escenarios, el valor de la información disminuye 
+                rápidamente con el tiempo (datos en tiempo real o near-real-time).
+            </p>
+            <h3>Tipos de velocidad de datos</h3>
+            <ul>
+                <li><strong>Batch (por lotes):</strong> Procesamiento periódico (diario, semanal). Ejemplo: reportes mensuales de ventas.</li>
+                <li><strong>Near real-time:</strong> Procesamiento con latencia de segundos o minutos. Ejemplo: actualización de inventario.</li>
+                <li><strong>Real-time / Streaming:</strong> Procesamiento continuo y casi instantáneo. Ejemplo: detección de fraude en tarjetas de crédito, monitoreo de sensores industriales.</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>Tecnologías clave para alta velocidad:</strong>
+                <ul class="mb-0 mt-2">
+                    <li>Apache Kafka, Apache Flink, Spark Streaming</li>
+                    <li>Bases de datos en memoria (Redis)</li>
+                    <li>Arquitecturas Lambda y Kappa</li>
+                    <li>Edge computing (procesar cerca de la fuente)</li>
+                </ul>
+            </div>
+            <h3>Ejemplo ilustrativo</h3>
+            <p>
+                Un sistema de monitoreo de tráfico vehicular recibe datos de cámaras y sensores 
+                cada segundo. Si se procesan solo al final del día (batch), se pierde la capacidad 
+                de reaccionar a congestiones en tiempo real. Con procesamiento en streaming se 
+                pueden ajustar semáforos dinámicamente.
+            </p>
+        </div>
+
+        <!-- Resumen 3Vs -->
+        <div class="section-card">
+            <h2><i class="bi bi-summary me-2"></i>Resumen de las 3 Vs</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Pregunta clave</th>
+                            <th>Impacto en el preprocesamiento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Volumen</strong></td>
+                            <td>¿Cuántos datos hay?</td>
+                            <td>Necesidad de muestreo, procesamiento distribuido, reducción de dimensionalidad</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Variedad</strong></td>
+                            <td>¿Qué tipos y formatos?</td>
+                            <td>Parsers múltiples, normalización de esquemas, técnicas de unificación</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Velocidad</strong></td>
+                            <td>¿A qué velocidad llegan?</td>
+                            <td>Pipelines de streaming, ventanas temporales, procesamiento incremental</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mt-3 mb-0">
+                Estas tres dimensiones no son independientes: un sistema de IoT industrial puede 
+                generar <em>alto volumen</em> de datos de <em>alta variedad</em> (sensores, logs, imágenes) 
+                a <em>alta velocidad</em>. El preprocesamiento debe diseñarse considerando las tres simultáneamente.
+            </p>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a href="index.html" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i> Inicio</a>
+            <a href="relaciones.html" class="btn btn-primary">1.2 Relaciones <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p class="mb-1">TecNM · Tecnológico de Estudios Superiores de Chalco</p>
+            <p class="mb-0 small">GAD-2401 · Análisis y Visualización de Datos</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

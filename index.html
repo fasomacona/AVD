@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 1: Datos y su Preprocesamiento | Análisis y Visualización de Datos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --secondary: #6610f2;
+            --dark: #212529;
+            --light-bg: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: #333;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+        .nav-sidebar {
+            position: sticky;
+            top: 20px;
+        }
+        .nav-sidebar .nav-link {
+            color: #495057;
+            border-radius: 0.5rem;
+            margin-bottom: 0.25rem;
+            transition: all 0.2s;
+        }
+        .nav-sidebar .nav-link:hover,
+        .nav-sidebar .nav-link.active {
+            background-color: #e7f1ff;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .section-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e9ecef;
+        }
+        .section-card h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-card h3 {
+            color: var(--secondary);
+            margin-top: 1.5rem;
+        }
+        .highlight-box {
+            background: #e7f1ff;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 1.5rem 0;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem 1.25rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 1.5rem 0;
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+        .code-block .comment { color: #6a9955; }
+        .code-block .keyword { color: #569cd6; }
+        .code-block .string { color: #ce9178; }
+        .code-block .function { color: #dcdcaa; }
+        .badge-topic {
+            font-size: 0.85rem;
+            padding: 0.4em 0.8em;
+        }
+        footer {
+            background: var(--dark);
+            color: #adb5bd;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .card-feature {
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+        }
+        .card-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.12);
+        }
+        .vs-table th {
+            background: var(--primary);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-bar-chart-line-fill me-2"></i>GAD-2401 · Tema 1
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="conjuntos.html">1.1 Conjuntos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="relaciones.html">1.2 Relaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="preprocesamiento.html">1.3 Preprocesamiento</a></li>
+                    <li class="nav-item"><a class="nav-link" href="caso_practico.html">1.4 Caso Práctico</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-light text-primary mb-3">Asignatura GAD-2401</span>
+                    <h1>Tema 1: Datos y su Preprocesamiento</h1>
+                    <p class="lead mb-0 mt-3">
+                        Fundamentos esenciales para el análisis y visualización de datos. 
+                        Comprende los tipos de conjuntos de datos, las relaciones entre ellos 
+                        y las técnicas de limpieza y preparación necesarias antes de cualquier análisis.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-center d-none d-lg-block">
+                    <i class="bi bi-database-fill-gear" style="font-size: 8rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="nav-sidebar">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-primary text-white fw-bold">
+                            <i class="bi bi-list-ul me-2"></i>Contenido del Tema
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#introduccion" class="list-group-item list-group-item-action">Introducción</a>
+                            <a href="conjuntos.html" class="list-group-item list-group-item-action">1.1 Conjunto de Datos</a>
+                            <a href="relaciones.html" class="list-group-item list-group-item-action">1.2 Relaciones</a>
+                            <a href="preprocesamiento.html" class="list-group-item list-group-item-action">1.3 Preprocesamiento</a>
+                            <a href="caso_practico.html" class="list-group-item list-group-item-action">1.4 Caso Práctico</a>
+                            <a href="#objetivos" class="list-group-item list-group-item-action">Objetivos de aprendizaje</a>
+                            <a href="#recursos" class="list-group-item list-group-item-action">Recursos recomendados</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Introducción -->
+                <section id="introduccion" class="section-card">
+                    <h2><i class="bi bi-info-circle me-2"></i>Introducción</h2>
+                    <p>
+                        En la era de la <strong>ciencia de datos</strong>, la calidad del análisis depende 
+                        directamente de la calidad de los datos que se utilizan. Antes de aplicar cualquier 
+                        técnica estadística, modelo predictivo o visualización avanzada, es indispensable 
+                        comprender la naturaleza de los datos y prepararlos adecuadamente.
+                    </p>
+                    <p>
+                        Este tema introduce los conceptos fundamentales de los <strong>conjuntos de datos</strong> 
+                        (especialmente en contextos de alto volumen, variedad y velocidad), las 
+                        <strong>relaciones</strong> que existen entre ellos, y el conjunto de técnicas 
+                        conocidas como <strong>preprocesamiento de datos</strong>.
+                    </p>
+                    <div class="highlight-box">
+                        <strong><i class="bi bi-lightbulb me-1"></i>Idea clave:</strong> 
+                        El preprocesamiento puede ocupar hasta el 80% del tiempo de un proyecto de ciencia 
+                        de datos. Dominar estas técnicas es una de las competencias más valoradas en la industria.
+                    </div>
+                </section>
+
+                <!-- Objetivos -->
+                <section id="objetivos" class="section-card">
+                    <h2><i class="bi bi-bullseye me-2"></i>Objetivos de Aprendizaje</h2>
+                    <p>Al finalizar este tema, el estudiante será capaz de:</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Identificar y caracterizar conjuntos de datos según su volumen, variedad y velocidad (las 3 Vs del Big Data).</li>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Representar relaciones entre datos mediante conjuntos, matrices y medidas de similitud/disimilitud.</li>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Aplicar técnicas de muestreo, filtrado, transformación e integración de datos.</li>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Manejar tipos comunes de errores y valores faltantes en conjuntos de datos reales.</li>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i>Implementar un flujo completo de preprocesamiento utilizando Python (NumPy y Pandas).</li>
+                    </ul>
+                </section>
+
+                <!-- Mapa del tema -->
+                <section class="section-card">
+                    <h2><i class="bi bi-map me-2"></i>Mapa del Tema</h2>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card card-feature h-100 border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary"><i class="bi bi-hdd-stack me-2"></i>1.1 Conjunto de Datos</h5>
+                                    <p class="card-text">Las 3 Vs: volumen, variedad y velocidad. Características de los datos modernos.</p>
+                                    <a href="conjuntos.html" class="btn btn-outline-primary btn-sm">Explorar →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card card-feature h-100 border-secondary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-secondary"><i class="bi bi-diagram-3 me-2"></i>1.2 Relaciones</h5>
+                                    <p class="card-text">Representaciones, medidas de similitud y disimilitud, relaciones de secuencia.</p>
+                                    <a href="relaciones.html" class="btn btn-outline-secondary btn-sm">Explorar →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card card-feature h-100 border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success"><i class="bi bi-gear-wide-connected me-2"></i>1.3 Preprocesamiento</h5>
+                                    <p class="card-text">Muestreo, errores, filtrado, transformación e integración de datos.</p>
+                                    <a href="preprocesamiento.html" class="btn btn-outline-success btn-sm">Explorar →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card card-feature h-100 border-warning">
+                                <div class="card-body">
+                                    <h5 class="card-title text-warning"><i class="bi bi-code-slash me-2"></i>1.4 Caso Práctico</h5>
+                                    <p class="card-text">Ejemplo completo de limpieza y preparación de un dataset real con Python.</p>
+                                    <a href="caso_practico.html" class="btn btn-outline-warning btn-sm">Explorar →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Competencias -->
+                <section class="section-card">
+                    <h2><i class="bi bi-award me-2"></i>Competencias que se desarrollan</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="text-primary">Específicas</h5>
+                            <ul>
+                                <li>Utilizar sintaxis avanzada de Python para manipulación de datos.</li>
+                                <li>Implementar operaciones de limpieza, transformación y preparación con NumPy y Pandas.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="text-primary">Instrumentales</h5>
+                            <ul>
+                                <li>Dominio de herramientas y bibliotecas para manipulación de datos.</li>
+                                <li>Escribir código limpio y eficiente en Python.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recursos -->
+                <section id="recursos" class="section-card">
+                    <h2><i class="bi bi-book me-2"></i>Recursos Recomendados</h2>
+                    <ul>
+                        <li><strong>Python for Data Analysis</strong> – Wes McKinney (O'Reilly)</li>
+                        <li><strong>Python Data Science Handbook</strong> – Jake VanderPlas</li>
+                        <li>Documentación oficial de <a href="https://pandas.pydata.org/docs/" target="_blank">Pandas</a> y <a href="https://numpy.org/doc/" target="_blank">NumPy</a></li>
+                        <li>Cursos de Coursera y DataCamp sobre Data Cleaning</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p class="mb-1">TecNM · Tecnológico de Estudios Superiores de Chalco</p>
+            <p class="mb-0 small">Asignatura: Análisis y Visualización de Datos (GAD-2401) · Especialidad: Gestión y Analítica Avanzada de Datos</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

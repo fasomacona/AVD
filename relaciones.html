@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.2 Relaciones | Tema 1 - GAD-2401</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        :root { --primary: #0d6efd; --secondary: #6610f2; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; }
+        .hero { background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%); color: white; padding: 3rem 0; }
+        .section-card { background: white; border-radius: 1rem; box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.08); padding: 2rem; margin-bottom: 2rem; border: 1px solid #e9ecef; }
+        .section-card h2 { color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 0.5rem; }
+        .section-card h3 { color: var(--secondary); margin-top: 1.75rem; }
+        .highlight-box { background: #e7f1ff; border-left: 4px solid var(--primary); padding: 1rem 1.25rem; border-radius: 0 0.5rem 0.5rem 0; margin: 1.5rem 0; }
+        .formula-box { background: #f8f9fa; border: 1px solid #dee2e6; padding: 1.25rem; border-radius: 0.5rem; font-family: 'Times New Roman', serif; font-size: 1.15rem; text-align: center; margin: 1.25rem 0; }
+        .code-block { background: #1e1e1e; color: #d4d4d4; padding: 1.25rem; border-radius: 0.5rem; overflow-x: auto; font-family: monospace; font-size: 0.9rem; }
+        footer { background: #212529; color: #adb5bd; padding: 2rem 0; margin-top: 3rem; }
+        .table th { background: var(--primary); color: white; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-bar-chart-line-fill me-2"></i>GAD-2401 · Tema 1</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="conjuntos.html">1.1 Conjuntos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="relaciones.html">1.2 Relaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="preprocesamiento.html">1.3 Preprocesamiento</a></li>
+                    <li class="nav-item"><a class="nav-link" href="caso_practico.html">1.4 Caso Práctico</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-2">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white-50">Tema 1</a></li>
+                    <li class="breadcrumb-item active text-white">1.2 Relaciones</li>
+                </ol>
+            </nav>
+            <h1 class="fw-bold">1.2 Relaciones</h1>
+            <p class="lead mb-0">Cómo representar y medir las conexiones, similitudes y secuencias entre datos.</p>
+        </div>
+    </section>
+
+    <div class="container my-4">
+        <div class="section-card">
+            <h2><i class="bi bi-diagram-3 me-2"></i>Introducción a las Relaciones en Datos</h2>
+            <p>
+                Los datos rara vez existen de forma aislada. Las <strong>relaciones</strong> entre observaciones, 
+                variables o entidades son fundamentales para el análisis. Entender cómo se relacionan 
+                los datos permite descubrir patrones, construir modelos más precisos y realizar 
+                visualizaciones más informativas.
+            </p>
+            <p>
+                En este apartado se abordan tres aspectos clave:
+            </p>
+            <ol>
+                <li>Representaciones de relaciones mediante conjuntos y matrices</li>
+                <li>Medidas de similitud y disimilitud</li>
+                <li>Relaciones de secuencia (datos temporales u ordenados)</li>
+            </ol>
+        </div>
+
+        <!-- 1.2.1 -->
+        <div class="section-card">
+            <h2>1.2.1 Representaciones de Relaciones, Conjuntos y Matrices</h2>
+            
+            <h3>Relaciones como conjuntos</h3>
+            <p>
+                En teoría de conjuntos, una relación \( R \) entre dos conjuntos \( A \) y \( B \) 
+                es un subconjunto del producto cartesiano \( A \times B \). Es decir:
+            </p>
+            <div class="formula-box">
+                \( R \subseteq A \times B \)
+            </div>
+            <p>
+                Cada par \( (a, b) \in R \) indica que el elemento \( a \) está relacionado con \( b \).
+            </p>
+
+            <h3>Matrices de relación / Matrices de adyacencia</h3>
+            <p>
+                Una forma práctica y computacionalmente eficiente de representar relaciones es mediante 
+                <strong>matrices</strong>. Si tenemos \( n \) objetos, una matriz de adyacencia \( M \) 
+                de tamaño \( n \times n \) puede codificar:
+            </p>
+            <ul>
+                <li>\( M_{ij} = 1 \) si existe relación entre \( i \) y \( j \)</li>
+                <li>\( M_{ij} = 0 \) en caso contrario</li>
+                <li>O valores numéricos si la relación tiene peso (fuerza, distancia, similitud, etc.)</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>Ejemplo:</strong> En un grafo de redes sociales, la matriz de adyacencia indica 
+                quiénes son amigos. En un sistema de recomendación, puede indicar qué usuarios 
+                han valorado los mismos productos.
+            </div>
+
+            <h3>Matrices de similitud y distancia</h3>
+            <p>
+                Cuando se trabaja con vectores de características (feature vectors), es común construir 
+                una matriz de similitud \( S \) o de distancia \( D \) donde cada entrada \( S_{ij} \) 
+                o \( D_{ij} \) cuantifica cuán parecidos o diferentes son los objetos \( i \) y \( j \).
+            </p>
+            <p>
+                Estas matrices son la base de algoritmos de clustering, sistemas de recomendación, 
+                reducción de dimensionalidad (MDS) y visualización de datos.
+            </p>
+        </div>
+
+        <!-- 1.2.2 -->
+        <div class="section-card">
+            <h2>1.2.2 Medidas de Disimilitud y Similitud</h2>
+            <p>
+                Las medidas de similitud y disimilitud permiten cuantificar el grado de parecido 
+                entre dos objetos. Son esenciales en clustering, clasificación, detección de anomalías 
+                y búsqueda de vecinos cercanos.
+            </p>
+
+            <h3>Distancia Euclidiana</h3>
+            <p>La más común para datos numéricos. Entre dos puntos \( \mathbf{x} \) y \( \mathbf{y} \) en \( \mathbb{R}^p \):</p>
+            <div class="formula-box">
+                \( d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^{p} (x_i - y_i)^2} \)
+            </div>
+
+            <h3>Distancia de Manhattan (L1)</h3>
+            <div class="formula-box">
+                \( d(\mathbf{x}, \mathbf{y}) = \sum_{i=1}^{p} |x_i - y_i| \)
+            </div>
+            <p>Útil cuando se desea dar menos peso a valores extremos.</p>
+
+            <h3>Similitud del Coseno</h3>
+            <p>
+                Mide el ángulo entre dos vectores. Ideal para datos de texto (bolsa de palabras) 
+                o cuando la magnitud no importa tanto como la dirección:
+            </p>
+            <div class="formula-box">
+                \( \text{sim}(\mathbf{x}, \mathbf{y}) = \frac{\mathbf{x} \cdot \mathbf{y}}{\|\mathbf{x}\| \|\mathbf{y}\|} \)
+            </div>
+            <p>Rango: \([-1, 1]\). Valores cercanos a 1 indican alta similitud.</p>
+
+            <h3>Coeficiente de Jaccard</h3>
+            <p>Para conjuntos (datos binarios o categóricos):</p>
+            <div class="formula-box">
+                \( J(A, B) = \frac{|A \cap B|}{|A \cup B|} \)
+            </div>
+            <p>Muy usado en minería de texto, sistemas de recomendación y comparación de documentos.</p>
+
+            <h3>Otras medidas importantes</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Medida</th>
+                            <th>Tipo de datos</th>
+                            <th>Uso típico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Correlación de Pearson</td>
+                            <td>Numéricos</td>
+                            <td>Relación lineal entre variables</td>
+                        </tr>
+                        <tr>
+                            <td>Distancia de Hamming</td>
+                            <td>Binarios / Categóricos</td>
+                            <td>Cadenas de bits, códigos de error</td>
+                        </tr>
+                        <tr>
+                            <td>Distancia de Mahalanobis</td>
+                            <td>Numéricos (con covarianza)</td>
+                            <td>Datos correlacionados, detección de outliers</td>
+                        </tr>
+                        <tr>
+                            <td>DTW (Dynamic Time Warping)</td>
+                            <td>Series temporales</td>
+                            <td>Alineación de secuencias de distinta longitud</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Consejo práctico:</strong> La elección de la medida de distancia/similitud 
+                tiene un impacto enorme en los resultados de clustering o k-NN. Siempre hay que 
+                considerar la naturaleza de las variables (escala, unidades, presencia de outliers).
+            </div>
+        </div>
+
+        <!-- 1.2.3 -->
+        <div class="section-card">
+            <h2>1.2.3 Relaciones de Secuencia</h2>
+            <p>
+                Las <strong>relaciones de secuencia</strong> aparecen cuando el orden de las observaciones 
+                es significativo. Esto incluye:
+            </p>
+            <ul>
+                <li>Series temporales (precios de acciones, temperatura, ventas diarias)</li>
+                <li>Secuencias de eventos (clicks en una web, transacciones, logs)</li>
+                <li>Datos ordenados espacialmente o por prioridad</li>
+                <li>Secuencias biológicas (ADN, proteínas)</li>
+            </ul>
+
+            <h3>Características especiales de los datos secuenciales</h3>
+            <ul>
+                <li><strong>Dependencia temporal:</strong> El valor en el tiempo \( t \) depende de valores anteriores.</li>
+                <li><strong>Estacionalidad y tendencias:</strong> Patrones periódicos y cambios a largo plazo.</li>
+                <li><strong>Autocorrelación:</strong> Correlación de una serie consigo misma en diferentes retardos (lags).</li>
+            </ul>
+
+            <h3>Representaciones comunes</h3>
+            <ul>
+                <li>Vectores o matrices de series temporales</li>
+                <li>Grafos dirigidos (flujos de eventos)</li>
+                <li>Cadenas de Markov (probabilidades de transición)</li>
+                <li>Embeddings de secuencias (Word2Vec, Transformers, etc.)</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Importancia en preprocesamiento:</strong> Al trabajar con secuencias se debe 
+                prestar especial atención a:
+                <ul class="mb-0 mt-2">
+                    <li>Alineación temporal (mismas frecuencias de muestreo)</li>
+                    <li>Manejo de valores faltantes en el tiempo (interpolación, forward-fill)</li>
+                    <li>Detección de cambios de régimen o puntos de quiebre</li>
+                    <li>Normalización que respete el orden (no se debe barajar aleatoriamente)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a href="conjuntos.html" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i> 1.1 Conjuntos</a>
+            <a href="preprocesamiento.html" class="btn btn-primary">1.3 Preprocesamiento <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p class="mb-1">TecNM · Tecnológico de Estudios Superiores de Chalco</p>
+            <p class="mb-0 small">GAD-2401 · Análisis y Visualización de Datos</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
