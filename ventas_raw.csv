@@ -1,0 +1,224 @@
+id_venta,fecha,id_producto,producto,categoria,region,sucursal,precio,cantidad
+V0191,03/14/2023,P-3002,Ensalada César,Alimentos, NORTE,CH-02,75.97,12
+V0146,19-07-2023,P-4002,Galletas,Snacks,centro,CH-01,14.74,2
+V0169,12/01/2023,P-5002,Taza logo,Merchandising,Nte ,MX-11,97.65,10
+V0211,15/10/2023,P-1004,Jugo de naranja,Bebidas,occidente,QRO-07,38.18,4
+V0056,11/17/2024,P-1001,Café americano,Bebidas,Occidente,CH-02,30.29,
+V0066,22/04/2023,P-2001,Croissant,Panadería,Nte,CH-02,21.40,5
+V0026,20/09/2023,P-3003,Wrap vegetariano,Alimentos,Norte,CH-02,63.57,4
+V0015,20/11/2023,P-3003,Wrap vegetariano,Alimentos, S ,QRO-07,66.28,6
+V0206,23/07/2024,P-2003,Bagel,Panadería,sur,CH-02,25.31,5
+V0184,07/08/2024,P-2001,Croissant,Panadería,Norte,CH-02,23.69,6
+V0160,04/10/2023,P-1001,Café americano,Bebidas,sur,CH-01,32.88,3
+V0161,08/01/2024,P-2002,Muffin de chocolate,Panadería,Occidente,CH-01,45000,10
+V0177,03/09/2023,P-1001,Café americano,Bebidas,occidente,QRO-07,31.36,1
+V0137,07/06/2023,P-1001,Café americano,Bebidas,occidente,CH-01,30.34,9
+V0212,2024-11-25,P-4002,Galletas,Snacks,norte,CH-02,15.24,5
+V0100,08/05/2023,P-2001,Croissant,Panadería,Sur,MX-11,23.29,8
+V0067,04/03/2023,P-4002,Galletas,Snacks,Occidente,PUE-03,15.91,3
+V0059,09/06/2024,P-3002,Ensalada César,Alimentos,occidente,MX-11,67.71,9
+V0090,12/12/2023,P-2003,Bagel,Panadería,S,MX-11,23.37,2
+V0065,07/01/2024,P-1002,Café latte,Bebidas,centro,MX-11,48.31,7
+V0136,11/06/2024,P-2001,Croissant,Panadería,S,QRO-07,21.74,3
+V0140,19/07/2024,P-2003,Bagel,Panadería,Ctro ,PUE-03,24.94,6
+V0187,25/04/2023,P-3003,Wrap vegetariano,Alimentos,norte,PUE-03,66.41,2
+V0105,2023-08-27,P-2002,Muffin de chocolate,Panadería,occidente,GDL-02,28.02,9
+V0043,2024-02-17,P-1002,Café latte,Bebidas,Oeste,CH-01,47.47,10
+V0123,11/10/2023,P-4001,Barra de granola,Snacks,Centro,GDL-02,17.35,5
+V0119,09/21/2024,P-1004,Jugo de naranja,Bebidas,Sur,GDL-02,40.24,7
+V0021,25-03-2023,P-1004,Jugo de naranja,Bebidas,Ctro ,CH-01,37.29,5
+V0193,22/09/2024,P-1001,Café americano,Bebidas,Ctro ,CH-02,30.40,12
+V0076,10/01/2023,P-3003,Wrap vegetariano,Alimentos,Ctro ,MX-11,63.89,1
+V0089,,P-4003,Papas,Snacks,Nte,CH-01,20.79,12
+V0141,31/03/2023,P-3003,Wrap vegetariano,Alimentos,,MX-11,65.61,1
+V0047,01/07/2024,P-5002,Taza logo,Merchandising,Occidente,MX-11,97.55,1
+V0189,14/02/2024,P-3001,Sándwich de pavo,Alimentos,Ctro,PUE-03,,10
+V0165,16/10/2023,P-3003,Wrap vegetariano,Alimentos,Nte,MX-11,68.87,2
+V0022,01/11/2024,P-2003,Bagel,Panadería,occidente,MX-11,24.90,3
+V0114,25/06/2023,P-1004,Jugo de naranja,Bebidas,occidente,CH-01,39.85,10
+V0054,2024-01-13,P-1001,Café americano,Bebidas,Nte,GDL-02,33.62,12
+V0011,21/03/2024,P-5002,Taza logo,Merchandising,centro,CH-01,92.39,5
+V0109,18-11-2023,P-2002,Muffin de chocolate,Panadería,Occidente,GDL-02,26.98,8
+V0144,28-11-2024,P-2003,Bagel,Panadería,Centro,GDL-02,24.11,6
+V0051,22/09/24,P-1002,Café latte,Bebidas,Sur,GDL-02,41.52,8
+V0163,29/03/2024,P-3001,Sándwich de pavo,Alimentos, S ,CH-02,60.14,7
+V0088,03/07/2023,P-4003,Papas,Snacks,norte,MX-11,20.94,6
+V0028,13/11/2024,P-4001,Barra de granola,Snacks,norte,CH-01,17.35,1
+V0051,22/09/24,P-1002,Café latte,Bebidas,Sur,GDL-02,41.52,8
+V0060,2023-04-12,P-2002,Muffin de chocolate,Panadería, S ,PUE-03,26.91,9
+V0029,17/06/2023,P-4003,Papas,Snacks,Nte,GDL-02,19.68,500
+V0196,2024-03-21,P-3001,Sándwich de pavo,Alimentos,centro,CH-02,70.14,12
+V0093,23-04-2024,P-2003,Bagel,Panadería,centro,CH-02,22.48,8
+V0025,2024-04-24,P-5001,Termo 350 ml,Merchandising,norte,MX-11,174.97,1
+V0050,03/05/2024,P-3001,Sándwich de pavo,Alimentos,centro,QRO-07,66.16,11
+V0156,2023-10-07,P-2001,Croissant,Panadería,Nte,PUE-03,22.35,1
+V0118,27/11/2024,P-3001,Sándwich de pavo,Alimentos,Ctro ,MX-11,69.84,9
+V0082,25/01/2023,P-3002,Ensalada César,Alimentos,Ctro,MX-11,73.14,8
+V0098,30/10/2024,P-4002,Galletas,Snacks,centro,PUE-03,15.85,7
+V0085,2023-03-04,P-5001,Termo 350 ml,Merchandising, NORTE,PUE-03,190.74,9
+V0010,27-05-2023,P-4001,Barra de granola,Snacks,,GDL-02,19.42,6
+V0133,22-09-2024,P-3002,Ensalada César,Alimentos,Occidente,MX-11,69.93,4
+V0096,30/08/2024,P-2001,Croissant,Panadería,occidente,CH-02,22.24,6
+V0213,08/07/2024,P-3003,Wrap vegetariano,Alimentos,Nte ,QRO-07,70.18,1
+V0073,14/09/2024,P-2002,Muffin de chocolate,Panadería,Oeste,GDL-02,26.57,1
+V0153,08-06-2023,P-3002,Ensalada César,Alimentos,Sur,PUE-03,72.93,11
+V0176,31/10/2023,P-1003,Té verde,Bebidas,occidente,CH-01,29.17,0
+V0079,23/10/2024,P-1001,Café americano,Bebidas,occidente,GDL-02,32.38,7
+V0077,2023-02-12,P-3003,Wrap vegetariano,Alimentos,Oeste,QRO-07,67.60,9
+V0095,07/11/2024,P-2003,Bagel,Panadería, NORTE,MX-11,23.03,4
+V0152,05/11/2023,P-1002,Café latte,Bebidas,S,CH-01,47.10,12
+V0214,26-10-2024,P-1003,Té verde,Bebidas,Sur,QRO-07,29.02,2
+V0218,30-06-2023,P-2003,Bagel,Panadería,occidente,MX-11,22.40,12
+V0175,09/03/2023,P-5001,Termo 350 ml,Merchandising,Ctro ,QRO-07,184.07,6
+V0032,22/07/2024,P-2003,Bagel,Panadería,Ctro,CH-01,22.69,9
+V0072,23/05/2024,P-4002,Galletas,Snacks,Centro,QRO-07,15.12,5
+V0018,2023-09-13,P-3002,Ensalada César,Alimentos,norte,PUE-03,75.68,10
+V0034,05/08/2023,P-4001,Barra de granola,bebidas,occidente,QRO-07,19.40,8
+V0052,18-03-2024,P-4003,Papas,Snacks,norte,CH-02,19.17,11
+V0036,2023-04-16,P-1001,Café americano,Bebidas,Occidente,GDL-02,33.16,2
+V0219,30/11/2023,P-4003,Papas,Snacks,Ctro ,CH-01,18.57,11
+V0154,06-08-2024,P-5002,Taza logo,Merchandising,Occidente,QRO-07,97.00,9
+V0217,15-07-2023,P-1003,Té verde,Bebidas,Nte,GDL-02,28.51,9
+V0158,30/01/2023,P-1001,Café americano,Bebidas,occidente,GDL-02,30.58,2
+V0180,17/09/2024,P-3002,Ensalada César,Alimentos,Norte,CH-02,74.92,3
+V0057,2024-08-02,P-2003,Bagel,Panadería,Norte,CH-01,24.01,3
+V0074,32/13/2024,P-1004,Jugo de naranja,Bebidas,S,CH-02,37.26,6
+V0111,30/11/2023,P-4003,  Café latte ,Snacks,Occidente,MX-11,19.17,5
+V0080,03/07/23,P-5001,Termo 350 ml,Merchandising,Oeste,MX-11,194.09,6
+V0041,09/17/2024,P-4003,Papas,Snacks,Nte,MX-11,20.92,1
+V0005,09/02/2023,P-4002,Galletas,Snacks,S,MX-11,15.91,3
+V0101,24/01/23,P-5001,Termo 350 ml,Merchandising,Sur,CH-01,193.30,8
+V0178,05/06/2024,P-3002,Ensalada César,Alimentos,Ctro ,CH-02,72.06,5
+V0020,20/05/2024,P-4003,Papas,Snacks,Centro,MX-11,20.83,6
+V0199,29/01/2024,P-3003,Wrap vegetariano,Alimentos,Norte,PUE-03,71.42,7
+V0157,29/01/2024,P-5001,Termo 350 ml,Merchandising,Ctro,GDL-02,197.34,10
+V0179,09/05/2024,P-3001,Sándwich de pavo,Alimentos,Nte ,PUE-03,63.07,2
+V0128,26/04/2024,P-1002,Café latte,Bebidas,Occidente,CH-02,44.93,12
+V0203,10/06/2024,P-1001,Café americano,Bebidas,Ctro ,MX-11,32.85,7
+V0181,12/02/2024,P-5001,Termo 350 ml,Merchandising,Ctro,GDL-02,200.40,6
+V0185,28/10/2024,P-5002,Taza logo,Merchandising,centro,CH-01,101.08,6
+V0121,12/05/2023,P-2002,Muffin de chocolate,Panadería,Oeste,QRO-07,28.25,8
+V0186,05/29/2023,P-4002,Galletas,Snacks,Norte,PUE-03,14.78,6
+V0086,14/10/2024,P-3002,Ensalada César,Alimentos,Oeste,MX-11,71.95,8
+V0166,14/01/2024,P-1003,Té verde,Bebidas,Sur,GDL-02,26.20,4
+V0091,10/06/2024,P-4003,Papas,Snacks,Oeste,CH-01,19.05,5
+V0170,21/08/2024,P-2002,Muffin de chocolate,Panadería,sur,PUE-03,26.55,8
+V0053,2023-04-13,P-1004,Jugo de naranja,Bebidas,centro,PUE-03,36.62,8
+V0205,2024-09-28,P-1003,Té verde,Bebidas,Ctro ,GDL-02,29.86,11
+V0204,2023-10-06,P-5001,Termo 350 ml,Merchandising,Ctro,CH-01,180.83,2
+V0008,,P-4002,Galletas,Snacks,Occidente,GDL-02,15.68,10
+V0200,2024-01-01,P-4001,Barra de granola,Snacks,occidente,CH-02,18.95,11
+V0039,04/02/2023,P-5001,Termo 350 ml,Merchandising,Centro,CH-01,183.29,2
+V0012,22-11-2023,P-5002,Taza logo,Merchandising, S ,CH-02,,7
+V0132,19/05/2024,P-1003,Té verde,Bebidas,sur,PUE-03,28.37,4
+V0004,30/12/2023,P-4002,Galletas,Snacks,Oeste,GDL-02,14.41,8
+V0172,2023-12-05,,Muffin de chocolate,Panadería, S ,CH-02,26.41,9
+V0138,08/03/2024,P-4003,Papas,Snacks,Nte,PUE-03,21.20,7
+V0038,03/08/2023,P-4001,Barra de granola,Snacks,Ctro,QRO-07,19.40,3
+V0063,18/03/2023,P-4001,Barra de granola,Snacks,Norte,CH-01,17.86,7
+V0055,2024-07-01,P-3003,Wrap vegetariano,Alimentos, S ,MX-11,63.69,1
+V0127,01/04/2023,P-1004,Jugo de naranja,Bebidas,Ctro,PUE-03,36.59,1
+V0069,26/12/2023,P-1001,Café americano,Bebidas,Occidente,MX-11,31.77,12
+V0031,2023-01-31,P-1002,Café latte,Bebidas,occidente,CH-01,41.54,10
+V0116,02/05/2023,P-5001,Termo 350 ml,Merchandising,centro,CH-01,196.27,2
+V0117,06/05/2023,P-2003,Bagel,Panadería,Ctro ,CH-01,23.46,3
+V0192,2023-09-13,P-1004,Jugo de naranja,Bebidas,norte,CH-01,36.49,12
+V0195,05/10/2023,P-5001,Termo 350 ml,Merchandising,Ctro ,PUE-03,191.33,11
+V0202,08/10/2024,P-5001,Termo 350 ml,Merchandising,S,GDL-02,187.86,11
+V0048,07/07/2023,P-5002,Taza logo,Merchandising,occidente,CH-01,94.22,1
+V0190,22/02/2024,P-4003,Papas,Snacks,Ctro ,GDL-02,19.66,12
+V0220,2024-11-02,P-4003,Papas,Snacks,Sur,QRO-07,19.43,12
+V0182,29/06/2023,P-4002,Galletas,Snacks,S,GDL-02,14.10,7
+V0019,08/08/2023,,Papas,Snacks,Ctro,PUE-03,18.62,8
+V0075,06-05-2023,P-5001,Termo 350 ml,Merchandising,Norte,CH-02,189.51,1
+V0042,,P-1004,Jugo de naranja,Bebidas,S,MX-11,35.68,12
+V0001,23-02-2023,P-5001,Termo 350 ml,Merchandising,sur,GDL-02,202.69,7
+V0040,24/11/2023,P-1004,Jugo de naranja,Bebidas, NORTE,QRO-07,36.65,6
+V0134,31/05/2024,P-2002,Muffin de chocolate,Panadería,Centro,GDL-02,27.25,6
+V0171,2023-04-07,P-1001,Café americano,Bebidas, S ,PUE-03,30.30,7
+V0107,2024-10-28,P-1001,Café americano,Bebidas,occidente,GDL-02,31.24,5
+V0173,04/12/2023,P-5002,Taza logo,Merchandising,occidente,GDL-02,93.50,12
+V0104,06-06-2023,P-5002,Taza logo,Merchandising,S,MX-11,90.28,5
+V0207,20/07/2024,P-1003,Té verde,Bebidas,Nte ,CH-01,30.22,4
+V0129,2024-10-05,P-3001,Sándwich de pavo,Alimentos,Ctro,GDL-02,70.13,10
+V0068,2024-09-02,P-2002,Muffin de chocolate,Panadería,Sur,GDL-02,,3
+V0102,2024-06-05,P-2001,Croissant,Panadería,Occidente,PUE-03,21.58,5
+V0030,12/08/23,P-4003,Papas,Snacks,Occidente,CH-02,21.48,5
+V0071,03/07/2023,P-4003,Papas,Snacks,sur,CH-01,19.23,2
+V0064,27/01/2023,P-5001,Termo 350 ml,Merchandising,Ctro,GDL-02,199.52,11
+V0216,2024-04-15,P-2002,Muffin de chocolate,Panadería,S,CH-01,28.38,1
+V0147,2023-07-12,P-1003,Té verde,Bebidas, S ,PUE-03,28.32,3
+V0208,01/05/2023,P-1001,Café americano,Bebidas,S,MX-11,34.25,12
+V0087,25/12/2023,P-2001,Croissant,Panadería, S ,CH-02,23.53,7
+V0126,14/02/2024,P-1003,Té verde,Bebidas,sur,QRO-07,26.38,4
+V0061,09/01/2024,P-4002,Galletas,Snacks,,GDL-02,15.86,5
+V0151,,P-1003,Té verde,Bebidas,Nte ,CH-02,29.25,11
+V0084,2024-07-31,P-1002,Café latte,Bebidas,Ctro ,CH-01,46.61,10
+V0145,2023-04-29,P-5001,Termo 350 ml,Merchandising, NORTE,QRO-07,199.66,10
+V0046,15/01/2023,P-2002,Muffin de chocolate,Panadería, NORTE,QRO-07,27.84,4
+V0017,04/05/2023,P-4002,Galletas,Snacks,occidente,MX-11,14.84,6
+V0188,09/10/24,P-4003,Papas,Snacks,norte,QRO-07,19.45,8
+V0164,01-08-2024,P-1002,Café latte,Bebidas,Nte,QRO-07,44.64,10
+V0023,2024-09-16,P-4002,Galletas,Snacks,Centro,CH-02,13.88,
+V0035,29/10/2024,P-1001,Café americano,Bebidas,norte,CH-02,,4
+V0007,14/01/2024,P-1004,Jugo de naranja,Bebidas,Nte,CH-01,35.40,4
+V0162,16/02/2024,P-4003,Papas,Snacks,Norte,PUE-03,21.08,4
+V0024,17/01/2023,P-1004,Jugo de naranja,Bebidas,Norte,QRO-07,38.90,1
+V0016,20/08/2023,P-3001,Sándwich de pavo,Alimentos, NORTE,MX-11,99999.00,8
+V0209,09/12/2023,P-2001,Croissant,Panadería,sur,MX-11,22.26,4
+V0168,03/08/2023,P-1004,Jugo de naranja,Bebidas,Sur,CH-01,38.96,9
+V0197,13/02/2024,P-4002,Galletas,Snacks,Occidente,MX-11,15.62,12
+V0103,25/07/2024,P-4001,Barra de granola,Snacks,centro,CH-02,,4
+V0115,14/05/2023,P-5001,Termo 350 ml,Merchandising,occidente,MX-11,198.74,6
+V0194,2024-10-24,P-3002,Ensalada César,Alimentos,S,PUE-03,67.32,1
+V0150,04/10/2024,P-5001,Termo 350 ml,Merchandising,sur,MX-11,189.86,5
+V0122,06/27/2023,P-4001,Barra de granola,Snacks,centro,GDL-02,16.95,8
+V0002,18/05/2024,P-5001,Termo 350 ml,Merchandising,Ctro,PUE-03,178.14,3
+V0099,29/10/2024,P-1001,Café americano,Bebidas,Occidente,CH-01,30.88,2
+V0009,03/04/2023,P-1004,Jugo de naranja,Bebidas,Ctro ,MX-11,37.51,8
+V0083,04/07/23,P-4003,Papas,Snacks,Centro,CH-01,19.58,9
+V0167,2024-08-29,P-3001,Sándwich de pavo,Alimentos,Ctro,GDL-02,64.72,2
+V0174,24/05/2024,P-2003,Bagel,Panadería,centro,PUE-03,24.41,9
+V0027,10/24/2023,P-2002,Muffin de chocolate,Panadería,Sur,CH-01,28.49,6
+V0124,07-01-2023,P-1001,Café americano,Bebidas, NORTE,QRO-07,32.65,2
+V0183,2023-12-14,P-2002,Muffin de chocolate,Panadería,Occidente,CH-01,25.58,7
+V0045,06/10/2024,P-3001,Sándwich de pavo,Alimentos,Oeste,PUE-03,60.20,9
+V0005,09/02/2023,P-4002,Galletas,Snacks,S,MX-11,15.91,3
+V0044,08-02-2023,P-4001,Barra de granola,Snacks,S,QRO-07,17.31,12
+V0201,29/03/2023,P-4002,Galletas,Snacks,Ctro ,MX-11,14.84,
+V0131,15/08/2024,P-3001,Sándwich de pavo,Alimentos,occidente,QRO-07,69.08,11
+V0006,02/10/2024,P-2003,Bagel,Panadería,occidente,GDL-02,25.41,4
+V0143,02/09/2023,P-5001,Termo 350 ml,Merchandising,norte,CH-01,173.91,1
+V0149,02/19/2023,P-4002,Galletas,Snacks,Nte ,GDL-02,15.68,8
+V0148,22-09-2024,P-2002,Muffin de chocolate,Panadería,Occidente,QRO-07,25.05,5
+V0130,n/a,P-1001,Café americano,Bebidas,Centro,PUE-03,34.09,7
+V0120,23-03-2024,P-1001,Café americano,Bebidas, NORTE,GDL-02,33.74,
+V0070,15/04/2024,P-4001,Barra de granola,Snacks, NORTE,QRO-07,18.94,2
+V0108,25/08/2024,P-2003,Bagel,Panadería, NORTE,MX-11,24.66,2
+V0155,2024-08-22,P-4002,Galletas,Snacks,occidente,QRO-07,15.89,9
+V0081,2023-08-08,P-2003,Bagel,PANADERÍA,Occidente,CH-02,22.22,8
+V0210,2023-10-20,P-2003,Bagel,Panadería,Ctro ,MX-11,25.57,10
+V0159,06/01/2024,P-5001,Termo 350 ml,Merchandising,S,CH-01,184.61,9
+V0037,12/01/2024,P-1001,Café americano,Bebidas,Ctro,GDL-02,31.42,3
+V0033,12-01-2024,P-4003,Papas,Snacks,occidente,GDL-02,19.92,11
+V0139,2024-06-28,P-1004,Jugo de naranja,Bebidas,centro,PUE-03,37.03,10
+V0198,2024-05-17,P-1001,Café americano,Bebidas, NORTE,CH-02,31.36,2
+V0113,22-10-2024,P-5001,Termo 350 ml,Merchandising,Centro,PUE-03,199.03,5
+V0049,22/09/2024,P-1001,Café americano,Bebidas,Nte,MX-11,30.13,11
+V0135,01/10/2023,P-3003,Wrap vegetariano,Alimentos,occidente,PUE-03,71.07,12
+V0106,2023-12-14,P-3001,Sándwich de pavo,Alimentos,centro,GDL-02,69.46,10
+V0005,09/02/2023,P-4002,Galletas,Snacks,S,MX-11,15.91,3
+V0003,28-09-2023,P-3003,Wrap vegetariano,Alimentos,Ctro ,PUE-03,62.97,8
+V0013,22/04/2024,P-2002,Muffin de chocolate,Panadería,Occidente,MX-11,26.02,2
+V0112,14/05/2023,P-2001,Croissant,Panadería,Ctro ,CH-02,22.54,12
+V0078,26/08/2024,P-1003,Té verde,Bebidas,Sur,QRO-07,26.28,10
+V0215,04-07-2024,P-2002,Muffin de chocolate,Panadería,Ctro,CH-02,26.09,1
+V0094,2023-06-04,,Jugo de naranja,Bebidas,Occidente,MX-11,39.73,10
+V0125,26/05/2023,P-3003,Wrap vegetariano,Alimentos,Nte ,CH-02,62.69,11
+V0097,09/08/24,P-3001,Sándwich de pavo,Alimentos,Oeste,PUE-03,61.76,11
+V0142,11/01/2024,P-5002,Taza logo,Merchandising,centro,CH-01,96.34,11
+V0110,25-06-2024,P-3002,Ensalada César,Alimentos,S,QRO-07,76.13,4
+V0014,23-03-2024,P-4003,Papas,Snacks,Centro,CH-02,20.31,2
+V0062,06-03-2023,P-2001,Croissant,Panadería,centro,QRO-07,23.81,4
+V0092,04/01/2024,P-3003,Wrap vegetariano,Alimentos,Ctro ,GDL-02,0.05,5
+V0058,08/02/24,P-1003,Té verde,Bebidas,Occidente,CH-02,29.19,4

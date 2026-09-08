@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.1 Conjuntos de datos · GAD-2401</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><span class="mark">T1</span><span>GAD-2401<small>Datos y preprocesamiento</small></span></a>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a class="active" href="conjuntos.html">1.1 Conjuntos</a>
+        <a href="relaciones.html">1.2 Relaciones</a>
+        <a href="preprocesamiento.html">1.3 Preprocesamiento</a>
+        <a href="caso-practico.html">1.4 Caso práctico</a>
+      </nav>
+    </div>
+    <nav class="mobile-menu">
+      <a href="index.html">Inicio</a>
+      <a class="active" href="conjuntos.html">1.1</a>
+      <a href="relaciones.html">1.2</a>
+      <a href="preprocesamiento.html">1.3</a>
+      <a href="caso-practico.html">1.4</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="kicker">Tema 1.1</p>
+      <h1>Conjunto de datos</h1>
+      <p class="lead">Las tres características que definen los datos actuales: volumen, variedad y velocidad.</p>
+    </div>
+  </section>
+  <main class="wrap">
+    <article class="card">
+      <h2>Qué es un conjunto de datos</h2>
+      <p class="muted">Un <strong>dataset</strong> es una colección —estructurada o no— de observaciones sobre un fenómeno. Puede ser una tabla, documentos, imágenes, series o grafos. En ciencia de datos moderna se describe con las <strong>3 Vs</strong> del Big Data.</p>
+      <div class="grid grid-3" style="margin-top:1rem">
+        <div class="tile"><h2>Volumen</h2><p class="muted">Cantidad masiva generada y almacenada.</p></div>
+        <div class="tile"><h2>Variedad</h2><p class="muted">Formatos, tipos y fuentes diversos.</p></div>
+        <div class="tile"><h2>Velocidad</h2><p class="muted">Ritmo al que llegan y deben procesarse.</p></div>
+      </div>
+    </article>
+    <article class="card">
+      <h2>1.1.1 Alto volumen</h2>
+      <p class="muted">Terabytes a exabytes. Ejemplos: redes sociales, IoT industrial, comercio electrónico, genómica. Cargar todo en RAM deja de ser viable: se usa almacenamiento distribuido, procesamiento paralelo y muestreo inteligente.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Desafío</th><th>Mitigación</th></tr></thead>
+          <tbody>
+            <tr><td>Almacenamiento</td><td>HDFS, object storage, compresión</td></tr>
+            <tr><td>Cómputo</td><td>Paralelo, Spark, MapReduce</td></tr>
+            <tr><td>Calidad</td><td>Más datos no implica mejores datos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+    <article class="card">
+      <h2>1.1.2 Alta variedad</h2>
+      <div class="grid grid-3">
+        <div class="tile"><h2>Estructurados</h2><p class="muted">SQL, hojas de cálculo, CSV</p></div>
+        <div class="tile"><h2>Semi-estructurados</h2><p class="muted">JSON, XML, logs, correo</p></div>
+        <div class="tile"><h2>No estructurados</h2><p class="muted">Texto, imagen, video, audio</p></div>
+      </div>
+      <div class="callout"><strong>Ejemplo.</strong> Un recomendador combina compras (tabla), clics (JSON) y reseñas (texto libre).</div>
+    </article>
+    <article class="card">
+      <h2>1.1.3 Alta velocidad</h2>
+      <ul class="list">
+        <li><strong>Batch:</strong> periódico (reportes diarios o mensuales).</li>
+        <li><strong>Near real-time:</strong> segundos o minutos (inventario).</li>
+        <li><strong>Streaming:</strong> continuo (fraude, sensores, semáforos).</li>
+      </ul>
+      <p class="muted">Tecnologías típicas: Kafka, Flink, Spark Streaming, Redis, arquitecturas Lambda/Kappa y edge computing.</p>
+    </article>
+    <div class="pager">
+      <a class="btn btn-ghost" href="index.html">← Inicio</a>
+      <a class="btn btn-solid" href="relaciones.html">1.2 Relaciones →</a>
+    </div>
+  </main>
+  <footer>TecNM · TESCHA · GAD-2401</footer>
+</body>
+</html>

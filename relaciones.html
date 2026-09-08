@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.2 Relaciones · GAD-2401</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><span class="mark">T1</span><span>GAD-2401<small>Datos y preprocesamiento</small></span></a>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="conjuntos.html">1.1 Conjuntos</a>
+        <a class="active" href="relaciones.html">1.2 Relaciones</a>
+        <a href="preprocesamiento.html">1.3 Preprocesamiento</a>
+        <a href="caso-practico.html">1.4 Caso práctico</a>
+      </nav>
+    </div>
+    <nav class="mobile-menu">
+      <a href="index.html">Inicio</a>
+      <a href="conjuntos.html">1.1</a>
+      <a class="active" href="relaciones.html">1.2</a>
+      <a href="preprocesamiento.html">1.3</a>
+      <a href="caso-practico.html">1.4</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="kicker">Tema 1.2</p>
+      <h1>Relaciones</h1>
+      <p class="lead">Cómo representar y medir las conexiones, similitudes y secuencias entre datos — con las fórmulas escritas de forma clara.</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <article class="card">
+      <h2>Introducción</h2>
+      <p class="muted">Los datos rara vez existen aislados. Las <strong>relaciones</strong> entre observaciones, variables o entidades permiten descubrir patrones, construir modelos y diseñar visualizaciones más informativas.</p>
+      <ol class="list">
+        <li>Representaciones mediante conjuntos y matrices</li>
+        <li>Medidas de similitud y disimilitud</li>
+        <li>Relaciones de secuencia (datos temporales u ordenados)</li>
+      </ol>
+    </article>
+
+    <article class="card">
+      <h2>1.2.1 Representaciones: conjuntos y matrices</h2>
+      <h3>Relaciones como conjuntos</h3>
+      <p class="muted">En teoría de conjuntos, una relación \(R\) entre dos conjuntos \(A\) y \(B\) es un subconjunto del producto cartesiano \(A \times B\):</p>
+      <figure class="formula-block">
+        \[ R \subseteq A \times B \]
+        <figcaption>\(R\) es el conjunto de pares ordenados que están relacionados</figcaption>
+      </figure>
+      <p class="muted">Cada par \((a,b) \in R\) indica que el elemento \(a\) está relacionado con \(b\). Ejemplo: si \(A\) son estudiantes y \(B\) son materias, entonces \((\mathrm{Ana}, \mathrm{Cálculo}) \in R\) significa que Ana cursa Cálculo.</p>
+
+      <h3>Matriz de adyacencia</h3>
+      <p class="muted">Con \(n\) objetos se usa una matriz \(M\) de tamaño \(n \times n\):</p>
+      <figure class="formula-block">
+        \[ M_{ij} = \begin{cases} 1 & \text{si } i \text{ se relaciona con } j \\ 0 & \text{en caso contrario} \end{cases} \]
+      </figure>
+      <p class="muted">Si la relación tiene peso (fuerza, distancia o similitud), \(M_{ij}\) puede ser un número real.</p>
+
+      <div class="callout">
+        <strong>Ejemplo:</strong> amistades entre Ana, Bruno y Carla
+        <div style="margin-top:.8rem;display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center">
+          <div class="matrix">
+            <span></span><span class="muted">Ana</span><span class="muted">Bruno</span><span class="muted">Carla</span>
+            <span class="muted">Ana</span><span>0</span><span>1</span><span>1</span>
+            <span class="muted">Bruno</span><span>1</span><span>0</span><span>0</span>
+            <span class="muted">Carla</span><span>1</span><span>0</span><span>0</span>
+          </div>
+          <p class="muted" style="max-width:22rem;margin:0">Ana es amiga de Bruno y Carla. Bruno y Carla no son amigos entre sí. La diagonal es 0 porque nadie es “amigo de sí mismo” en este modelo.</p>
+        </div>
+      </div>
+
+      <h3>Matrices de similitud y distancia</h3>
+      <p class="muted">Con vectores de características se construye una matriz de similitud \(S\) o de distancia \(D\):</p>
+      <figure class="formula-block">
+        \[ S_{ij} = \mathrm{sim}(\mathbf{x}_i, \mathbf{x}_j), \qquad D_{ij} = d(\mathbf{x}_i, \mathbf{x}_j) \]
+      </figure>
+      <p class="muted">Estas matrices alimentan clustering, sistemas de recomendación, MDS y visualización.</p>
+    </article>
+
+    <article class="card">
+      <h2>1.2.2 Medidas de disimilitud y similitud</h2>
+      <p class="muted">Permiten cuantificar el parecido entre dos objetos. Sean \(\mathbf{x}, \mathbf{y} \in \mathbb{R}^{p}\) dos vectores con \(p\) variables.</p>
+
+      <h3>Distancia euclidiana</h3>
+      <p class="muted">La más común para datos numéricos: “regla” en el espacio de \(p\) dimensiones.</p>
+      <figure class="formula-block">
+        \[ d_{\mathrm{E}}(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^{p} (x_i - y_i)^2} \]
+        <figcaption>Raíz de la suma de diferencias al cuadrado</figcaption>
+      </figure>
+
+      <h3>Distancia de Manhattan (L1)</h3>
+      <p class="muted">Recorre los ejes (como manzanas de una ciudad). Es más robusta ante valores extremos que la euclidiana.</p>
+      <figure class="formula-block">
+        \[ d_{\mathrm{M}}(\mathbf{x}, \mathbf{y}) = \sum_{i=1}^{p} \lvert x_i - y_i \rvert \]
+        <figcaption>Suma de valores absolutos de las diferencias</figcaption>
+      </figure>
+
+      <h3>Distancia de Minkowski (generalización)</h3>
+      <p class="muted">Euclidiana es el caso \(q = 2\); Manhattan es \(q = 1\).</p>
+      <figure class="formula-block">
+        \[ d_{q}(\mathbf{x}, \mathbf{y}) = \left( \sum_{i=1}^{p} \lvert x_i - y_i \rvert^{q} \right)^{1/q} \]
+      </figure>
+
+      <h3>Similitud del coseno</h3>
+      <p class="muted">Mide el ángulo entre dos vectores. Ideal para texto (bolsa de palabras) cuando importa la dirección, no la magnitud.</p>
+      <figure class="formula-block">
+        \[ \mathrm{sim}_{\cos}(\mathbf{x}, \mathbf{y}) = \dfrac{\mathbf{x} \cdot \mathbf{y}}{\lVert \mathbf{x} \rVert \,\lVert \mathbf{y} \rVert} = \dfrac{\sum_{i=1}^{p} x_i y_i}{\sqrt{\sum_{i=1}^{p} x_i^2}\,\sqrt{\sum_{i=1}^{p} y_i^2}} \]
+        <figcaption>Rango \([-1, 1]\). Valores cercanos a 1 indican alta similitud</figcaption>
+      </figure>
+
+      <h3>Coeficiente de Jaccard</h3>
+      <p class="muted">Para conjuntos (datos binarios o categóricos): proporción de elementos compartidos respecto a la unión.</p>
+      <figure class="formula-block">
+        \[ J(A, B) = \dfrac{\lvert A \cap B \rvert}{\lvert A \cup B \rvert} \]
+        <figcaption>0 = nada en común; 1 = conjuntos idénticos</figcaption>
+      </figure>
+      <p class="muted">Equivalente binario: si \(M_{11}\) es el número de atributos presentes en ambos y \(M_{10}, M_{01}\) los presentes en uno solo:</p>
+      <figure class="formula-block">
+        \[ J = \dfrac{M_{11}}{M_{11} + M_{10} + M_{01}} \]
+      </figure>
+
+      <h3>Correlación de Pearson (como similitud)</h3>
+      <p class="muted">Mide relación lineal. También se usa como similitud entre perfiles (por ejemplo, usuarios en un sistema de recomendación).</p>
+      <figure class="formula-block">
+        \[ r_{xy} = \dfrac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2}\,\sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}} \]
+        <figcaption>Rango \([-1, 1]\). Independiente de la escala de cada variable</figcaption>
+      </figure>
+
+      <h3>Distancia de Hamming</h3>
+      <p class="muted">Número de posiciones en las que dos cadenas de la misma longitud difieren:</p>
+      <figure class="formula-block">
+        \[ d_{\mathrm{H}}(\mathbf{x}, \mathbf{y}) = \sum_{i=1}^{p} \mathbf{1}(x_i \neq y_i) \]
+      </figure>
+
+      <h3>Distancia de Mahalanobis</h3>
+      <p class="muted">Tiene en cuenta la covarianza: no trata igual una variable ruidosa que una estable, ni ignora correlaciones.</p>
+      <figure class="formula-block">
+        \[ d_{\mathrm{Mah}}(\mathbf{x}, \mathbf{y}) = \sqrt{(\mathbf{x}-\mathbf{y})^{\top} \Sigma^{-1} (\mathbf{x}-\mathbf{y})} \]
+        <figcaption>\(\Sigma\) es la matriz de covarianza de las variables</figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Medida</th><th>Tipo de datos</th><th>Uso típico</th></tr></thead>
+          <tbody>
+            <tr><td>Euclidiana / Manhattan</td><td>Numéricos</td><td>Clustering, k-NN</td></tr>
+            <tr><td>Coseno</td><td>Vectores / texto</td><td>Documentos, recomendaciones</td></tr>
+            <tr><td>Jaccard</td><td>Conjuntos / binarios</td><td>Canastas, etiquetas</td></tr>
+            <tr><td>Pearson</td><td>Numéricos</td><td>Relación lineal, perfiles</td></tr>
+            <tr><td>Hamming</td><td>Binarios / cadenas</td><td>Códigos, genomas cortos</td></tr>
+            <tr><td>Mahalanobis</td><td>Numéricos correlacionados</td><td>Outliers, elipses</td></tr>
+            <tr><td>DTW</td><td>Series temporales</td><td>Alinear secuencias de distinta longitud</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout"><strong>Consejo práctico.</strong> La elección de la medida cambia por completo un clustering o un k-NN. Normaliza variables si usas Euclidiana. Para texto, empieza por coseno; para conjuntos, por Jaccard.</div>
+    </article>
+
+    <article class="card">
+      <h2>1.2.3 Relaciones de secuencia</h2>
+      <p class="muted">Aparecen cuando el <strong>orden</strong> importa: series temporales, clics, transacciones, logs, ADN.</p>
+      <h3>Dependencia temporal</h3>
+      <p class="muted">El valor en el tiempo \(t\) depende de valores anteriores. Un modelo simple es la autorregresión de orden 1:</p>
+      <figure class="formula-block">
+        \[ x_t = \phi x_{t-1} + \varepsilon_t \]
+        <figcaption>El presente se explica, en parte, por el instante anterior</figcaption>
+      </figure>
+      <h3>Autocorrelación</h3>
+      <p class="muted">Correlación de una serie consigo misma con un retardo (lag) \(k\):</p>
+      <figure class="formula-block">
+        \[ \rho_k = \dfrac{\sum_{t=k+1}^{n} (x_t - \bar{x})(x_{t-k} - \bar{x})}{\sum_{t=1}^{n} (x_t - \bar{x})^2} \]
+      </figure>
+      <p class="muted">Un \(\rho_k\) alto indica que el valor de hace \(k\) periodos todavía informa el valor actual (estacionalidad semanal, anual, etc.).</p>
+      <div class="callout">
+        <strong>Implicación para el preprocesamiento</strong>
+        <ul class="list">
+          <li>Alinear frecuencias de muestreo.</li>
+          <li>Imputar huecos con interpolación o forward-fill, no con media global.</li>
+          <li>No barajar las filas: se destruye el orden temporal.</li>
+          <li>Detectar cambios de régimen (puntos de quiebre) antes de modelar.</li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="pager">
+      <a class="btn btn-ghost" href="conjuntos.html">← 1.1 Conjuntos</a>
+      <a class="btn btn-solid" href="preprocesamiento.html">1.3 Preprocesamiento →</a>
+    </div>
+  </main>
+  <footer>TecNM · TESCHA · GAD-2401</footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "\\[", right: "\\]", display: true },
+            { left: "$$", right: "$$", display: true },
+            { left: "\\(", right: "\\)", display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
+</body>
+</html>

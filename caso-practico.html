@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.4 Caso práctico · GAD-2401</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html"><span class="mark">T1</span><span>GAD-2401<small>Datos y preprocesamiento</small></span></a>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="conjuntos.html">1.1 Conjuntos</a>
+        <a href="relaciones.html">1.2 Relaciones</a>
+        <a href="preprocesamiento.html">1.3 Preprocesamiento</a>
+        <a class="active" href="caso-practico.html">1.4 Caso práctico</a>
+      </nav>
+    </div>
+    <nav class="mobile-menu">
+      <a href="index.html">Inicio</a>
+      <a href="conjuntos.html">1.1</a>
+      <a href="relaciones.html">1.2</a>
+      <a href="preprocesamiento.html">1.3</a>
+      <a class="active" href="caso-practico.html">1.4</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="kicker">Tema 1.4</p>
+      <h1>Caso práctico</h1>
+      <p class="lead">Limpieza y preparación de un conjunto de ventas con Python (Pandas + NumPy).</p>
+    </div>
+  </section>
+  <main class="wrap">
+    <article class="card">
+      <h2>El problema</h2>
+      <p class="muted">El archivo <code>ventas_raw.csv</code> está en el mismo repositorio que estas páginas HTML. Tiene faltantes, nombres de región inconsistentes, outliers, duplicados y fechas en varios formatos. El objetivo es un dataset limpio listo para análisis.</p>
+      <p style="margin-top:1.2rem">
+        <a class="btn btn-solid" href="ventas_raw.csv" download="ventas_raw.csv">Descargar ventas_raw.csv</a>
+      </p>
+      <p class="muted" style="margin-top:.7rem;font-size:.9rem">223 filas · mismo directorio que <code>caso-practico.html</code> en GitHub.</p>
+    </article>
+    <article class="card">
+      <h2>1. Carga y exploración</h2>
+      <pre>import pandas as pd
+df = pd.read_csv("ventas_raw.csv", encoding="utf-8")
+print(df.shape, df.dtypes, df.head())
+print(df.isnull().sum(), df.duplicated().sum())</pre>
+    </article>
+    <article class="card">
+      <h2>2. Duplicados e inconsistencias</h2>
+      <pre>df = df.drop_duplicates()
+df["region"] = df["region"].str.strip().str.title()
+mapa = {"Nte": "Norte", "S": "Sur", "Ctro": "Centro"}
+df["region"] = df["region"].replace(mapa)
+df["fecha"] = pd.to_datetime(df["fecha"], errors="coerce", dayfirst=True)</pre>
+    </article>
+    <article class="card">
+      <h2>3. Valores faltantes</h2>
+      <pre>df = df.dropna(subset=["fecha", "id_producto"])
+df["precio"] = df.groupby("categoria")["precio"].transform(
+    lambda x: x.fillna(x.median())
+)
+df["cantidad"] = df["cantidad"].fillna(df["cantidad"].median())
+df["region"] = df["region"].fillna("Desconocida")</pre>
+    </article>
+    <article class="card">
+      <h2>4. Outliers y variables nuevas</h2>
+      <pre>df["precio"] = df["precio"].clip(
+    lower=df["precio"].quantile(0.01),
+    upper=df["precio"].quantile(0.99),
+)
+df["ingreso"] = df["precio"] * df["cantidad"]
+df["anio"] = df["fecha"].dt.year
+df["mes"] = df["fecha"].dt.month
+df.to_csv("ventas_limpias.csv", index=False)</pre>
+      <p class="muted">Resultado: un archivo analítico y, si se necesita modelado, otro con variables escaladas y categóricas codificadas.</p>
+    </article>
+    <div class="pager">
+      <a class="btn btn-ghost" href="preprocesamiento.html">← 1.3 Preprocesamiento</a>
+      <a class="btn btn-solid" href="index.html">Inicio</a>
+    </div>
+  </main>
+  <footer>TecNM · TESCHA · GAD-2401</footer>
+</body>
+</html>
